@@ -15,7 +15,7 @@ app.use('/', (req, res, next) => {
     console.log("J'attends la création d'un nouveau repertoire github...")
     if (probot.webhooks.verify(req, res, next)){
         // si la requête est valide, elle est passé a l'app probot
-        probot.webhooks.receive(req, res, next);
+        probot.webhooks.receive(req, res, {event: req.headers['x-github-event'], octokit: context.octokit}, next);
         console.log("je reçois la requête")
     }else {
         res.status(400).send('Invalid request');
