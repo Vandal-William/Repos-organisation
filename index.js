@@ -11,7 +11,6 @@ const probot = new Probot({appId: process.env.APP_ID, privateKey: process.env.PR
 // Middleware pour intercepter les requêtes GitHub
 app.use('/', (req, res, next) => {
     // vérification de la signature HMAC (est ce que la requête vient de GitHub)
-    res.json("J'attends la création d'un nouveau repertoire github...")
     console.log("J'attends la création d'un nouveau repertoire github...")
     if (probot.webhooks.verify(req, res, next)){
         // si la requête est valide, elle est passé a l'app probot
