@@ -25,6 +25,7 @@ app.use('/', (req, res, next) => {
 probot.on('repository.created', async (context) => {
     const repository = context.payload.repository;
     const repoFullName = repository.full_name;
+    console.log(repoFullName)
 
     // Variables d'authentification
     const username = "Vandal-William";
