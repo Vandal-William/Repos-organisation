@@ -12,9 +12,11 @@ const probot = new Probot({appId: process.env.APP_ID, privateKey: process.env.PR
 app.use('/', (req, res, next) => {
     // vérification de la signature HMAC (est ce que la requête vient de GitHub)
     res.json("J'attends la création d'un nouveau repertoire github...")
+    console.log("J'attends la création d'un nouveau repertoire github...")
     if (probot.webhooks.verify(req, res, next)){
         // si la requête est valide, elle est passé a l'app probot
         probot.webhooks.receive(req, res, next);
+        console.log("je reçois la requête")
     }else {
         res.status(400).send('Invalid request');
     }
