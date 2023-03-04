@@ -1,7 +1,7 @@
 require('dotenv').config();
 module.exports = {
   apps : [{
-    name: 'portfolio',
+    name: 'repo-organisation',
     script: 'index.js',
     autorestart: true,
     watch: '.'
